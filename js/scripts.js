@@ -40,13 +40,19 @@ function flipCoin() {
     }, { once: true });
 }
 
-window.addEventListener('resize', function() {
+
+function adjustCoinSize() {
     console.log("Screen width is now: " + window.innerWidth);
     var coin = document.getElementById("coin");
     if (window.innerWidth < 768) {
         // 假設硬幣和容器的尺寸在小屏幕上需要特別處理
         coin.style.width = "80px";
     } else {
-        coin.style.width = "150px";
+        coin.style.width = "100px";
     }
-});
+}
+
+window.addEventListener('resize', adjustCoinSize);
+
+// 在網頁加載時立即調整硬幣的大小
+window.addEventListener('load', adjustCoinSize);
